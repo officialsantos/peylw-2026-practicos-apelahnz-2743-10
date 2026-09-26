@@ -2,3 +2,54 @@ body {
     font-family: sans-serif;
     background-color: #f4f4f9;
 }
+
+/* Espaciado del formulario y separación con la tabla */
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+/* Campos verticales */
+.form-contacto label {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio-group {
+    margin-right: 70%;
+}
+
+/* Opciones de radio en línea */
+.radios label {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.checkbox-group {
+    margin-right: 70%;
+}
+
+/* Botón alineado a la izquierda */
+#btn-cargar-apelahnz-2743-10 {
+    align-self: flex-start;
+    padding: 6px 12px;
+    margin: 0;
+}
+
+/* Tabla con bordes negros */
+.tabla-resumen {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.tabla-resumen th, 
+.tabla-resumen td {
+    padding: 6px 12px;
+    border: 1px solid black;
+}
+
+footer {
+    margin-top: 2rem;
+}
