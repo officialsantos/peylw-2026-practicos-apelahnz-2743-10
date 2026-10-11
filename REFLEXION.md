@@ -56,3 +56,27 @@
 
 3. Cuando varios botones de radio comparten el mismo valor en el atributo name, el navegador los trata como parte de un mismo grupo: solo uno de ellos puede estar seleccionado a la vez, y al marcar uno se desmarca automáticamente cualquier otro del grupo. En cambio, si los radio buttons tienen atributos name diferentes, el navegador los considera independientes, y por lo tanto cada uno puede marcarse o desmarcarse sin afectar a los demás.
 
+
+
+
+
+# LABORATORIO 4
+
+1. Código CSS de la animación de rotación vertical del logo:
+
+    ```css
+    .logo {
+        height: 48px;
+        width: auto;
+        transition: transform 1s ease-in-out;
+    }
+
+    .logo:hover {
+        transform: rotateY(360deg);
+    }
+    ```
+
+2. Un elemento con `position: sticky` queda pegado arriba mientras el texto de la biografía sigue subiendo por detrás. Si no tiene `background-color`, su fondo es transparente y el texto que pasa por debajo se ve a través del título, mezclándose con él y haciéndolo ilegible. Con un fondo sólido, el título tapa el texto que pasa por detrás y se sigue leyendo bien.
+
+3. En pantallas de menos de 768px, la cabecera pasa a mostrarse en columna y los links del menú dejan de estar en fila para apilarse uno debajo del otro. También se agranda el espacio superior del contenido para que la cabecera, que ahora es más alta, no lo tape, y la tabla pasa a poder desplazarse horizontalmente en lugar de romper el ancho de la pantalla.
+

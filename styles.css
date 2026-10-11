@@ -1,8 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+/*
+  Alumno: apelahnz-2743-10
+  Paleta HSL (rojizos pastel):
+    Primario:     hsl(355, 62%, 62%)
+    Oscuro:       hsl(355, 45%, 38%)
+    Fila alterna: hsl(355, 60%, 93%)
+*/
+
 body {
-    font-family: sans-serif;
+    font-family: 'Outfit', sans-serif;
     background-color: #f4f4f9;
 }
 
+/* ---------- Header fijo ---------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+    background-color: hsl(355, 62%, 62%);
+    color: white;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+/* ---------- Logo animado ---------- */
+.logo {
+    height: 48px;
+    width: auto;
+    transition: transform 1s ease-in-out;
+}
+
+.logo:hover {
+    transform: rotateY(360deg);
+}
+
+/* ---------- Navegación (flexbox) ---------- */
+nav {
+    margin-left: auto;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+/* Espacio para que el header fijo no tape el contenido
+   y el footer fijo no tape el final */
+main {
+    padding-top: 140px;
+    padding-bottom: 80px;
+}
+
+/* ---------- Acerca de: caja con scroll y título sticky ---------- */
+.biografia {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.biografia h2 {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f9;
+    z-index: 10;
+    margin: 0;
+}
+
+/* ---------- Formulario ---------- */
 /* Espaciado del formulario y separación con la tabla */
 .form-contacto {
     display: flex;
@@ -15,6 +101,21 @@ body {
 .form-contacto label {
     display: flex;
     flex-direction: column;
+}
+
+.form-contacto input[type="text"],
+.form-contacto input[type="email"],
+.form-contacto input[type="number"] {
+    padding: 8px;
+    border: 1px solid hsl(355, 30%, 70%);
+    border-radius: 6px;
+}
+
+/* Efecto al enfocar el campo */
+.form-contacto input:focus {
+    outline: none;
+    border-color: hsl(355, 62%, 62%);
+    box-shadow: 0 0 0 3px hsla(355, 62%, 62%, 0.3);
 }
 
 .radio-group {
@@ -38,18 +139,90 @@ body {
     margin: 0;
 }
 
-/* Tabla con bordes negros */
+/* ---------- Tabla ---------- */
 .tabla-resumen {
     border-collapse: collapse;
     border: 1px solid black;
+    width: 100%;
+    max-width: 700px;
 }
 
-.tabla-resumen th, 
+.tabla-resumen th,
 .tabla-resumen td {
     padding: 6px 12px;
     border: 1px solid black;
 }
 
+.tabla-resumen th:first-child,
+.tabla-resumen td:first-child {
+    width: 35%;
+}
+
+/* Filas alternas */
+.tabla-resumen tbody tr:nth-child(even) {
+    background-color: hsl(355, 60%, 93%);
+}
+
+/* ---------- Footer siempre pegado abajo y visible ---------- */
 footer {
-    margin-top: 2rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 900;
+    box-sizing: border-box;
+    background-color: hsl(355, 62%, 62%);
+    color: white;
+    padding: 10px 80px 10px 24px;
+}
+
+/* ---------- Botón volver arriba ---------- */
+.volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: hsl(355, 45%, 38%);
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        margin-left: 0;
+    }
+
+    /* Links del menú apilados */
+    nav ul {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    main {
+        padding-top: 260px;
+        padding-bottom: 120px;
+    }
+
+    /* La tabla se desplaza lateralmente si no entra */
+    .tabla-resumen {
+        display: block;
+        overflow-x: auto;
+    }
 }
