@@ -80,3 +80,25 @@
 
 3. En pantallas de menos de 768px, la cabecera pasa a mostrarse en columna y los links del menú dejan de estar en fila para apilarse uno debajo del otro. También se agranda el espacio superior del contenido para que la cabecera, que ahora es más alta, no lo tape, y la tabla pasa a poder desplazarse horizontalmente en lugar de romper el ancho de la pantalla.
 
+
+
+
+# LABORATORIO 5 
+
+1. Código js de la validación de edad:
+
+    ```js
+    const edad = Number(inputEdad.value);
+
+    if (inputEdad.value !== "" && edad < 18) {
+        tdEdad.style.backgroundColor = "#ffcccc";
+        tdEdad.innerText = edad + " (Menor de edad)";
+    } else {
+        tdEdad.style.backgroundColor = "";
+        tdEdad.innerText = inputEdad.value;
+    }
+    ```
+
+2. Se utilizó `input` porque actualiza los datos cada vez que el valor es modificado, por lo tanto se puede ver en tiempo real cómo la tabla  se rellena con cada tecla presionada. En cambio, `change` modifica el valor una vez se desenfoque la casilla de input, o en el caso de los radios y checkboxes se actualiza al presionar una de las opciones disponibles.
+
+3. Pude ejecutar código específico en una página identificando la URL y revisando si está en la página requerida para ejecutar ese código. Eso hace que ese código solo se ejecute en, por ejemplo, `acercade.html`.
