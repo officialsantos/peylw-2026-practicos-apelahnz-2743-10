@@ -70,7 +70,7 @@ nav a {
 /* Espacio para que el header fijo no tape el contenido
    y el footer fijo no tape el final */
 main {
-    padding-top: 140px;
+    padding-top: 80px;
     padding-bottom: 80px;
 }
 
@@ -191,34 +191,166 @@ footer {
     justify-content: center;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Juego ---------- */
+#juego {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Panel de estadísticas */
+#estadisticas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    background-color: white;
+    border: 2px solid hsl(355, 62%, 62%);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+#estadisticas p {
+    margin: 0;
+    padding: 10px 12px;
+    background-color: hsl(355, 60%, 93%);
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+#estadisticas span {
+    color: hsl(355, 45%, 38%);
+    font-size: 1.2rem;
+}
+
+#estadisticas p:last-child {
+    grid-column: 1 / -1;
+    background-color: hsl(355, 45%, 38%);
+    color: white;
+    text-align: center;
+}
+
+#estadisticas p:last-child span {
+    color: white;
+}
+
+/* Botones de jugada */
+#opciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+#opciones button {
+    flex: 1 1 120px;
+    padding: 18px 12px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    background-color: hsl(355, 62%, 62%);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#opciones button:hover {
+    background-color: hsl(355, 45%, 38%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#opciones button:active {
+    transform: translateY(0) scale(0.97);
+}
+
+/* Panel de feedback */
+#feedback {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 16px;
+    background-color: white;
+    border: 2px dashed hsl(355, 30%, 70%);
+    border-radius: 12px;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+#feedback.ganaste {
+    background-color: hsl(140, 45%, 88%);
+    border: 2px solid hsl(140, 40%, 40%);
+    color: hsl(140, 50%, 25%);
+}
+
+#feedback.empate {
+    background-color: hsl(45, 85%, 88%);
+    border: 2px solid hsl(45, 70%, 45%);
+    color: hsl(45, 70%, 25%);
+}
+
+#feedback.perdiste {
+    background-color: hsl(0, 70%, 90%);
+    border: 2px solid hsl(0, 55%, 50%);
+    color: hsl(0, 55%, 30%);
+}
+
+/* Botón de reinicio */
+#btn-reiniciar-apelahnz-2743-10 {
+    align-self: center;
+    padding: 10px 28px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(355, 45%, 38%);
+    background-color: transparent;
+    border: 2px solid hsl(355, 45%, 38%);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#btn-reiniciar-apelahnz-2743-10:hover {
+    background-color: hsl(355, 45%, 38%);
+    color: white;
+}
+
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        padding: 8px 16px;
+        gap: 8px 12px;
     }
 
     header h1 {
         font-size: 1.1rem;
     }
 
-    nav {
-        margin-left: 0;
+    .logo {
+        height: 36px;
     }
 
-    /* Links del menú apilados */
+    nav {
+        margin-left: 0;
+        width: 100%;
+    }
+
     nav ul {
-        flex-direction: column;
-        gap: 4px;
+        flex-wrap: wrap;
+        gap: 4px 8px;
+    }
+
+    nav a {
+        display: block;
+        padding: 6px 8px;
     }
 
     main {
-        padding-top: 260px;
+        padding-top: 130px;
         padding-bottom: 120px;
     }
 
-    /* La tabla se desplaza lateralmente si no entra */
     .tabla-resumen {
         display: block;
         overflow-x: auto;

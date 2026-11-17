@@ -37,7 +37,6 @@
 
 
 
-
 # LABORATORIO 3
 
 1.  <div class="form-group">
@@ -55,7 +54,6 @@
 2. La etiqueta <label> sirve para asignar una descripción textual a un campo de un formulario, como un <input>, con el fin de mejorar la accesibilidad y la usabilidad, ya que al hacer clic sobre el texto de la etiqueta el foco se traslada automáticamente al campo asociado, además de ser narrado para las personas con discapacidades visuales. La forma de asociarla a un campo específico es con el atributo for, y su valor debe coincidir exactamente con el atributo id del campo de entrada correspondiente.
 
 3. Cuando varios botones de radio comparten el mismo valor en el atributo name, el navegador los trata como parte de un mismo grupo: solo uno de ellos puede estar seleccionado a la vez, y al marcar uno se desmarca automáticamente cualquier otro del grupo. En cambio, si los radio buttons tienen atributos name diferentes, el navegador los considera independientes, y por lo tanto cada uno puede marcarse o desmarcarse sin afectar a los demás.
-
 
 
 
@@ -102,3 +100,23 @@
 2. Se utilizó `input` porque actualiza los datos cada vez que el valor es modificado, por lo tanto se puede ver en tiempo real cómo la tabla  se rellena con cada tecla presionada. En cambio, `change` modifica el valor una vez se desenfoque la casilla de input, o en el caso de los radios y checkboxes se actualiza al presionar una de las opciones disponibles.
 
 3. Pude ejecutar código específico en una página identificando la URL y revisando si está en la página requerida para ejecutar ese código. Eso hace que ese código solo se ejecute en, por ejemplo, `acercade.html`.
+
+
+
+
+# LABORATORIO 6
+1. Elegí el juego de piedra, papel o tijeras para este laboratorio.
+
+2. Código js de la lectura y escritura del récord:
+
+    ```js
+    let record = Number(localStorage.getItem("record-juego")) || 0;
+
+    if (racha > record) {
+        record = racha;
+        localStorage.setItem("record-juego", record);
+        spanRecord.innerText = record;
+    }
+    ```
+
+3. Para combatir a las trampas, usé una constante que se crea después del clic del usuario, con una función que elige 3 números aleatorios entre 0, 1 y 2. Desde la consola no se puede acceder a la constante `compu` porque se crea tras el clic y deja de existir después de eso, para dar lugar a elegir otra opción. 

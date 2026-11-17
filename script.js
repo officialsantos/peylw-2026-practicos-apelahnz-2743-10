@@ -96,3 +96,80 @@ if (window.location.pathname.includes("acercade.html")) {
         }
     });
 }
+
+
+if (window.location.pathname.includes("juego.html")) {
+const botones = [
+    document.getElementById("btn-piedra-apelahnz-2743-10"),  // 0
+    document.getElementById("btn-papel-apelahnz-2743-10"),   // 1
+    document.getElementById("btn-tijera-apelahnz-2743-10")   // 2
+  ];
+
+const feedback = document.getElementById("feedback");
+const spanGanadas = document.getElementById("ganadas");
+const spanEmpatadas = document.getElementById("empatadas");
+const spanPerdidas = document.getElementById("perdidas");
+const spanRacha = document.getElementById("racha");
+const spanRecord = document.getElementById("record");
+
+let ganadas = 0;
+let empatadas = 0;
+let perdidas = 0;
+let racha = 0;
+let record = Number(localStorage.getItem("record-juego")) || 0;
+spanRecord.innerText = record;
+
+    botones.forEach(function (boton, numero) {
+        boton.addEventListener("click", function () {
+        const compu = Math.floor(Math.random() * 3);
+
+        if (numero == compu) {
+            feedback.innerText = "¡Empate!";
+            empatadas++;
+            spanEmpatadas.innerText = empatadas;
+            feedback.className = "empate";
+        // empate
+        } else if ((numero == 0 && compu == 2) || (numero == 1 && compu == 0) || (numero == 2 && compu == 1)) {
+            feedback.innerText = "¡Ganaste!";
+            ganadas++;
+            spanGanadas.innerText = ganadas;
+            racha++;
+            spanRacha.innerText = racha;
+            feedback.className = "ganaste";
+        // gana el usuario
+
+        } else {
+            feedback.innerText = "¡Perdiste!";
+            perdidas++;
+            spanPerdidas.innerText = perdidas;
+            racha = 0;
+            spanRacha.innerText = racha;
+            feedback.className = "perdiste";
+        // gana la máquina
+        }
+
+        if (racha > record) {
+            record = racha;
+            localStorage.setItem("record-juego", record);
+            spanRecord.innerText = record;
+        }
+
+        });
+
+    const btnReiniciar = document.getElementById("btn-reiniciar-apelahnz-2743-10");
+
+        btnReiniciar.addEventListener("click", function () {
+            ganadas = 0;
+            empatadas = 0;
+            perdidas = 0;
+            racha = 0;
+
+            spanGanadas.innerText = ganadas;
+            spanEmpatadas.innerText = empatadas;
+            spanPerdidas.innerText = perdidas;
+            spanRacha.innerText = racha;
+
+            feedback.innerText = "Elegí tu jugada";
+        });
+    });
+}
